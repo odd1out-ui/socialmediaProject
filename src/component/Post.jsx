@@ -25,7 +25,7 @@ const Post=({post})=>{
         {post.tags.map((tag)=><span class="badge text-bg-primary hashtag">{tag}</span>)}<hr/>
         
         <div class="alert alert-info reaction" role="alert">
-            Post liked by {post.reactions} people
+            Post liked by {post.views} people
         </div>
 
         

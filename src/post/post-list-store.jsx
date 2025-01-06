@@ -1,4 +1,5 @@
 import { createContext, useReducer,useEffect } from "react";
+import CreatePost from "../component/CreatePost";
 
     
 
@@ -13,10 +14,19 @@ const PostListProvider=({children})=>{
     const controller=new AbortController();
     const signal=controller.signal;
     
-    const addPost=(post)=>{
+    const addPost=(userID,postTitle,postBody,reactions,hashtags)=>{
         dispatchPostList({
             type:'ADD_POST',
-            payload:post,
+            payload:{
+                id:Date.now(),
+                title:postTitle,
+                body:postBody,
+                reaction:reactions,
+                userid:userID,
+                tags:hashtags,
+                
+                
+            }
             
                 
             
@@ -57,11 +67,13 @@ const PostListProvider=({children})=>{
         
 
     },[])*/
-    
     return(
+        <div>
         <PostList.Provider value={{postList,addPost,addIntialPost,deletePost}}>
             {children}
         </PostList.Provider>
+        
+        </div>
     )
     
     

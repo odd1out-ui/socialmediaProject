@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const router=createBrowserRouter([
     {path:'/', element:<App/>, children:[
         {path:'/',element:<PostList/> , loader:postLoader},
-        {path:'/create-post',element:<CreatePost/>, action :submitFormAction},
+        {path:'/create-post',element:<CreatePost/>},
 
 
 ]},

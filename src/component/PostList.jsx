@@ -4,9 +4,15 @@ import WelcomeMsg from './WelcomeMsg';
 import Post from './Post'
 import LoadingSpinner from './LoadingSpinner';
 import { useLoaderData } from 'react-router-dom';
+import CreatePost from './CreatePost';
 
 const PostList=()=>{
-    const postList=useLoaderData();
+
+    //const postList=useLoaderData();
+    const {postList}=useContext(PostListData);
+    const postListLoader=useLoaderData();
+
+
     
     
     
@@ -16,8 +22,13 @@ const PostList=()=>{
     return(
         <>
         
-        { postList.length===0 &&(<WelcomeMsg />)}
+        
         {postList.map((post)=>(<Post  post={post}/>))}
+        {postListLoader.map((post)=>(<Post  post={post}/>))}
+
+
+    
+    
         
         
 
